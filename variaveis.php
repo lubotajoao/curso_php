@@ -14,20 +14,21 @@ $aula_atual = 'variaveis';
 <h3>Apresentar valor de variáveis</h3>
 
 <?php
-
+$nome = "Joao";
+$saldo = 7548.50;
 ?>
 
-<h4>Nome: </h4>
+<h4>Nome: <?= $nome;?> </h4>
 <p></p>
 
 <br>
 
-<h4>Saldo: </h4>
+<h4>Saldo: <?= $saldo;?></h4>
 <p></p>
 
 <br>
 
-<h4>Mensagem: </h4>
+<h4>Mensagem: <?= "Olá {$nome}, o seu saldo é {$saldo}.";?></h4>
 <p></p>
 
 
@@ -35,5 +36,3 @@ $aula_atual = 'variaveis';
 
 
 </body>
-
-</html>
