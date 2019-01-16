@@ -1,51 +1,36 @@
-	<?php 
-		include 'header.php';
-		include 'functions/functions.php';
-		$aula_atual = 'variaveis-superglobais';
-	?>
+<?php
+include 'header.php';
+include 'functions/functions.php';
+$aula_atual = 'variaveis-superglobais';
+?>
 
+<body>
+<h2>Variáveis Superglobais</h2>
+<hr>
+<small>Curso de Básico de PHP - Prof. Ivan Lourenço Gomes</small>
 
-	<body>
+<h3>$_SERVER</h3>
 
+<!--<pre>--><?php //var_dump($_SERVER)?><!--</pre>-->
 
-		<h2>Variáveis Superglobais</h2>
-		<hr>
-		<small>Curso de Básico de PHP - Prof. Ivan Lourenço Gomes</small>
+<h3>$GLOBALS</h3>
 
+<?php
 
+$msg = 'hello world';
+$bye = 'bye bye world';
 
-		<h3>$_SERVER</h3>
+function mensagem()
+{
+	global $msg;
+	echo $msg;
+}
 
-		<p><?php ?></p>
+mensagem();
+?>
 
+<!--<pre>--><?php //echo($GLOBALS['msg']) ?><!--</pre>-->
 
+<?php include 'functions/bottom_index.php'; ?>
 
-		<h3>$GLOBALS</h3>
-
-		<?php
-
-		$msg = 'hello world';
-		$bye = 'bye bye world';
-
-		?>
-
-		<p><?php ?></p>
-
-
-		
-
-
-
-
-
-
-
-
-
-
-		<?php include 'functions/bottom_index.php'; ?>
-
-
-	</body>
-
-</html>
+</body>
