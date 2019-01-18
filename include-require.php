@@ -8,19 +8,11 @@ $aula_atual = 'include-require';
 <hr>
 <small>Curso de Básico de PHP - Prof. Ivan Lourenço Gomes</small>
 <h3>Include</h3>
-<?php
-include 'file-to-include.php';
 
-$temperatura = celsiusToFahrenheit(40);
-?>
-
-<p><?php
-	echo $primeiro_nome;
-	echo "<br>" . $temperatura;
-	?></p>
+<p><?php ?></p>
 <br>
 
-<h3>Componente galeria de fotos</h3>
+<h3>Componente galeria de fotos 1</h3>
 <?php
 $photoGallery = array(
 	'img/prato_1.jpg',
@@ -29,12 +21,22 @@ $photoGallery = array(
 	'img/prato_4.jpg'
 );
 ?>
+<?php
+include 'components/gallery-001.php';
+?>
 
-<div class="gallery-001">
-	<?php foreach ($photoGallery as $photo) { ?>
-		<img src="<?php echo $photo; ?>" alt="galeria-fotos">
-	<?php } ?>
-</div>
+<h3>Componente galeria de fotos 2</h3>
+<?php
+$photoGallery = array(
+	'img/prato_5.jpg',
+	'img/prato_6.jpg',
+	'img/prato_7.jpg',
+	'img/prato_8.jpg'
+);
+?>
+<?php
+include 'components/gallery-001.php';
+?>
 
 <?php include 'functions/bottom_index.php'; ?>
 
