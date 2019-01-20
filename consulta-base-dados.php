@@ -1,69 +1,40 @@
-<?php 
-		include 'header.php';
-		$aula_atual = 'consulta-base-dados';
-	?>
+<?php
+include 'header.php';
+$aula_atual = 'consulta-base-dados';
+?>
 
 
-
-	<body>
-
-
-		<h2>Consulta à base de dados</h2>
-		<hr>
-		<small>Curso de Básico de PHP - Prof. Ivan Lourenço Gomes</small>
+<body>
 
 
-		<h3>Dados dos clientes</h3>
+<h2>Consulta à base de dados</h2>
+<hr>
+<small>Curso de Básico de PHP - Prof. Ivan Lourenço Gomes</small>
 
 
-		
-		<?php 
-
-			$server = 'localhost';
-			$user = 'root';
-			$password = 'root';
-			$dbname = 'curso_php';
-			$port = '8889';
-
-			$db_connect = new mysqli($server, $user, $password, $dbname, $port);
-
-			if ($db_connect->connect_error == true) {
-				echo 'Não foi possível conectar à base de dados.';
-			} else {
-				// echo 'Conectado à base de dados.' . '<br><br>';
-
-				
-			}
-
-		?>
+<h3>Dados dos clientes</h3>
 
 
-		
+<?php
+
+$server = 'localhost';
+$user = 'root';
+$password = '';
+$dbname = 'curso_php';
+$port = '3306';
+
+$db_connect = new mysqli($server, $user, $password, $dbname, $port);
+
+if ($db_connect->connect_error == true) {
+	echo 'Não foi possível conectar à base de dados.';
+} else {
+	// echo 'Conectado à base de dados.' . '<br><br>';
 
 
-		
+}
 
-		
+?>
 
+<?php include 'functions/bottom_index.php'; ?>
 
-
-		
-
-		
-
-		
-		
-
-
-
-
-
-
-
-
-		<?php include 'functions/bottom_index.php'; ?>
-
-
-	</body>
-
-</html>
+</body>

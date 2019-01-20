@@ -2,7 +2,6 @@
 include 'header.php';
 $aula_atual = 'valida-formularios';
 ?>
-
 <?php
 function clean_input($data)
 {
@@ -14,7 +13,6 @@ function clean_input($data)
 }
 
 ?>
-
 <body>
 <h2>Formulários</h2>
 <hr>
@@ -39,38 +37,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} else {
 		$nome = clean_input($nome);
 		$email = clean_input($email);
+
+		$server = 'localhost';
+		$db_name = 'curso_php';
+		$user = 'root';
+		$password = '';
+		$port = '3306';
+
+		$db_connect = new mysqli($server, $user, $password, $db_name, $port);
+
+		if ($db_connect->connect_error == true) {
+			$ms_envio = "Erro de conexao." . $db_connect->connect_error;
+		} else {
+			$sql = "INSERT INTO clientes(nome, email) VALUES ('$nome', '$email')";
+
+			if ($db_connect->query($sql) == true) {
+				$ms_envio = "Formulario enviado com sucesso";
+				$nome = NULL;
+				$email = NULL;
+			} else {
+				$ms_envio = "Nao foi possivel enviar o formulario. " . mysqli_error($db_connect);
+			}
+		}
 	}
 }; ?>
 
 <form action="valida-formularios.php" method="post">
 	Nome: *<br>
-	<input class="field" name="nome" type="text">
+	<input class="field" name="nome" type="text" value="<?php echo $nome; ?>">
 	<br>
 
-	<div class="erro-form"><?php global $erro_nome;
-		echo $erro_nome; ?></div>
+	<div class="erro-form">
+		<?php
+		global $erro_nome;
+		echo $erro_nome;
+		?>
+	</div>
 	<br>
 
 	E-mail: *<br>
-	<input class="field" name="email" type="email">
+	<input class="field" name="email" type="email" value="<?php echo $email; ?>">
 	<br>
 
-	<div class="erro-form"><?php global $erro_email;
-		echo $erro_email; ?></div>
+	<div class="erro-form">
+		<?php
+		global $erro_email;
+		echo $erro_email;
+		?>
+	</div>
 	<br>
 
 	<input class="submit" name="submit" type="submit"><br>
-	<div class="sucesso-form"></div>
+	<div class="sucesso-form">
+		<?php
+		global $ms_envio;
+		echo $ms_envio;
+		?>
+	</div>
 </form>
-
-<h3>Confirmaçao</h3>
-<p>
-	<?php
-	echo $nome;
-	echo "<br>";
-	echo $email;
-	?>
-</p>
 
 <?php include 'functions/bottom_index.php'; ?>
 </body>
