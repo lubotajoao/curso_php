@@ -1,7 +1,15 @@
 <?php
 include 'header.php';
 $aula_atual = 'valida-formularios';
+
+$nome = "";
+$email = "";
+$erro_nome  = "";
+$erro_email = "";
+$ms_envio = "";
+
 ?>
+
 <?php
 function clean_input($data)
 {
@@ -69,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	<div class="erro-form">
 		<?php
-		global $erro_nome;
+		// global $erro_nome;
 		echo $erro_nome;
 		?>
 	</div>
@@ -81,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	<div class="erro-form">
 		<?php
-		global $erro_email;
+		// global $erro_email;
 		echo $erro_email;
 		?>
 	</div>
@@ -90,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<input class="submit" name="submit" type="submit"><br>
 	<div class="sucesso-form">
 		<?php
-		global $ms_envio;
+		// global $ms_envio;
 		echo $ms_envio;
 		?>
 	</div>
